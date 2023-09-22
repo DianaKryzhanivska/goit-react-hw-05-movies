@@ -28,7 +28,7 @@ fetchMovieById(565770); //!!!!
 export const fetchMovieBySearch = async query => {
   const { data } = await axios.get(`/search/movie?query=${query}`, params);
   console.log(data.results);
-  return data;
+  return data.results;
 };
 
 fetchMovieBySearch('barbie');
@@ -43,8 +43,8 @@ fetchMovieCast(565770);
 
 export const fetchMovieReviews = async movieId => {
   const { data } = await axios.get(`/movie/${movieId}/reviews`, params);
-  console.log(data.results);
-  return data.results;
+  console.log(data);
+  return data;
 };
 
 // fetchMovieReviews(565770);
