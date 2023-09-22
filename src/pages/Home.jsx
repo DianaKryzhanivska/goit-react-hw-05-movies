@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchAllMovies } from 'services/api';
 
 const Home = () => {
-  const { data: movies, setData } = useHttp(fetchAllMovies);
+  const { data: movies } = useHttp(fetchAllMovies);
 
   return (
     <div>
