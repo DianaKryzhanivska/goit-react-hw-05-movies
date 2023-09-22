@@ -1,6 +1,6 @@
 import { BackLink } from 'components/BackLink';
 import { useHttp } from 'hooks/useHttp';
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import { styled } from 'styled-components';
@@ -12,13 +12,13 @@ const MovieDetails = () => {
   const { title, poster_path, vote_average, overview, genres } = movie;
 
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
   const genresList = genres?.map(genre => genre.name).join(' ');
 
   return (
     <div>
-      <BackLink to={backLinkHref}>Go back</BackLink>
+      <BackLink to={backLinkHref.current}>Go back</BackLink>
       <MovieCard>
         <img
           src={`https://image.tmdb.org/t/p/w342${poster_path}`}
