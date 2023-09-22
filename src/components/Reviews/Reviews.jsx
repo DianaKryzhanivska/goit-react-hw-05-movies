@@ -16,10 +16,10 @@ const Reviews = () => {
         ) : (
           <ul>
             {data.results?.map(review => (
-              <li key={review.id}>
+              <StyledReviewItem key={review.id}>
                 <AuthorName>Author: {review.author}</AuthorName>
                 <p>{review.content}</p>
-              </li>
+              </StyledReviewItem>
             ))}
           </ul>
         )}
@@ -32,4 +32,12 @@ export default Reviews;
 
 export const AuthorName = styled.p`
   font-weight: bold;
+`;
+
+export const StyledReviewItem = styled.li`
+  background-color: rgb(240, 240, 240, 0.5);
+  padding: 10px 20px;
+  list-style: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
 `;

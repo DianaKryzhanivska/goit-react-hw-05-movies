@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { fetchMovieBySearch } from 'services/api';
+import { styled } from 'styled-components';
 
 const Movies = () => {
   const { register, handleSubmit } = useForm();
@@ -27,22 +28,56 @@ const Movies = () => {
   const location = useLocation();
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(submit)}>
-        <input {...register('queryStr')} type="text" />
-        <button>Search</button>
-      </form>
-      <ol>
+    <StyledHomeWrapper>
+      <StyledForm onSubmit={handleSubmit(submit)}>
+        <StyledInput {...register('queryStr')} type="text" />
+        <StyledFormButton>Search</StyledFormButton>
+      </StyledForm>
+      <StyledMovieList>
         {data?.map(movie => (
-          <li key={movie.id}>
+          <StyledMovieItem key={movie.id}>
             <Link state={{ from: location }} to={movie.id.toString()}>
               {movie.title}
             </Link>
-          </li>
+          </StyledMovieItem>
         ))}
-      </ol>
-    </div>
+      </StyledMovieList>
+    </StyledHomeWrapper>
   );
 };
 
 export default Movies;
+
+export const StyledHomeWrapper = styled.div`
+  padding: 0 40px;
+`;
+
+export const StyledForm = styled.form`
+  margin-top: 30px;
+  margin-left: 40px;
+`;
+
+export const StyledInput = styled.input`
+  width: 200px;
+  height: 24px;
+  margin-right: 15px;
+`;
+
+export const StyledFormButton = styled.button`
+  width: 80px;
+  height: 28px;
+  font-size: 16px;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+`;
+
+export const StyledMovieList = styled.ol`
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+`;
+
+export const StyledMovieItem = styled.li`
+  font-size: 18px;
+`;
