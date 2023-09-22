@@ -12,7 +12,6 @@ const Cast = () => {
   return (
     <>
       <div>
-        <h2>Cast</h2>
         <CastList>
           {castArr.cast?.map(actor => (
             <li key={actor.id}>

@@ -12,7 +12,7 @@ const Movies = () => {
 
   // 2. При використанні сабміта, встановлюємо параметр query в наш url
   const submit = data => {
-    console.log(data);
+    // console.log(data);
     setSearchParams(data.queryStr && { query: data.queryStr });
   };
 
