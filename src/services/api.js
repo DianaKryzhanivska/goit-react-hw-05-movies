@@ -23,15 +23,11 @@ export const fetchMovieById = async movieId => {
   return data;
 };
 
-// fetchMovieById(565770); //!!!!
-
 export const fetchMovieBySearch = async query => {
   const { data } = await axios.get(`/search/movie?query=${query}`, params);
   // console.log(data.results);
   return data.results;
 };
-
-// fetchMovieBySearch('barbie');
 
 export const fetchMovieCast = async movieId => {
   const { data } = await axios.get(`/movie/${movieId}/credits`, params);
@@ -39,13 +35,8 @@ export const fetchMovieCast = async movieId => {
   return data;
 };
 
-// fetchMovieCast(565770);
-
 export const fetchMovieReviews = async movieId => {
   const { data } = await axios.get(`/movie/${movieId}/reviews`, params);
   // console.log(data);
   return data;
 };
-
-// fetchMovieReviews(565770);
-// // 565770
