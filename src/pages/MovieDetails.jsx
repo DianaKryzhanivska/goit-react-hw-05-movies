@@ -7,7 +7,6 @@ import { styled } from 'styled-components';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  // console.log(movieId);
   const { data: movie } = useHttp(fetchMovieById, movieId);
   const { title, poster_path, vote_average, overview, genres } = movie;
 

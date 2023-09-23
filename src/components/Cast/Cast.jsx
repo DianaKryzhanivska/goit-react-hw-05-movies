@@ -38,7 +38,6 @@ export const CastList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px 50px;
-  /* justify-content: space-between; */
   list-style: none;
 `;
 
