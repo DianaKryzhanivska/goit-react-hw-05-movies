@@ -7,7 +7,7 @@ import { styled } from 'styled-components';
 const Cast = () => {
   const { movieId } = useParams();
   const { data: castArr } = useHttp(fetchMovieCast, movieId);
-  const imgNotFound = 'https://placekitten.com/g/200/280';
+  const imgNotFound = 'https://placekitten.com/g/185/280';
 
   return (
     <>
